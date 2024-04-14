@@ -1,0 +1,46 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Lab Items",
+		"description": "Lab Items Behavior Pack",
+		"uuid": "1984995a-fe61-a165-cd3f-3b7e30e38516",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 16, 0]
+	},
+	"metadata": {
+		"authors": ["Simon"],
+		"generated_with": {
+			"blockbench_block_wizard": ["1.2.1"],
+			"blockbench_item_wizard": ["1.0.2"]
+		}
+	},
+	"modules": [
+		{
+			"description": "Behavior",
+			"version": [1, 0, 0],
+			"uuid": "1ca86d2b-4b8b-e229-0719-2a1e5322e059",
+			"type": "data"
+		},
+		{
+			"type": "script",
+			"uuid": "176dfb52-a1d1-4fc3-a3ed-263d8415d435",
+			"entry": "scripts/main.js",
+			"language": "javascript",
+			"version": [1, 0, 0]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "5491e034-a523-a996-dfab-e9f80b95595b",
+			"version": [1, 0, 0]
+		},
+		{ 
+			"module_name": "@minecraft/server",
+			"version": "1.12.0-beta"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.1.0"
+		}
+	]
+}

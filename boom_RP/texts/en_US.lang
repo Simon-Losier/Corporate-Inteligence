@@ -1,0 +1,6 @@
+tile.lab:id_scanner.name=ID_Scanner
+item.lab:id_card_1=ID Card 1
+tile.lab:door.name=Door Hazard
+tile.lab:exit_sign.name=Exit Sign
+tile.lab:terminal.name=Terminal
+tile.myname:fancy_sign.name=Fancy Sign

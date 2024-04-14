@@ -1,0 +1,23 @@
+{
+	"resource_pack_name": "vanilla",
+	"texture_name": "atlas.terrain",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"fancy_sign": {
+			"textures": "textures/blocks/fancy_sign.png"
+		},
+		"terminal": {
+			"textures": "textures/blocks/terminal.png"
+		},
+		"exit_sign": {
+			"textures": "textures/blocks/exit_sign.png"
+		},
+		"door": {
+			"textures": "textures/blocks/door.png"
+		},
+		"id_scanner": {
+			"textures": "textures/blocks/id_scanner.png"
+		}
+	}
+}

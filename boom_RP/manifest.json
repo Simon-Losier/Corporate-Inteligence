@@ -1,0 +1,25 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Lab Items",
+		"description": "Lab Items Resource Pack",
+		"uuid": "5491e034-a523-a996-dfab-e9f80b95595b",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 16, 0]
+	},
+	"metadata": {
+		"authors": ["Simon"],
+		"generated_with": {
+			"blockbench_block_wizard": ["1.2.1"],
+			"blockbench_item_wizard": ["1.0.2"]
+		}
+	},
+	"modules": [
+		{
+			"description": "Lab Items",
+			"type": "resources",
+			"uuid": "fb5b9456-60b6-c4aa-07c6-22f1e95a666f",
+			"version": [1, 0, 0]
+		}
+	]
+}

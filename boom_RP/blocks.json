@@ -1,0 +1,17 @@
+{
+	"fancy_sign": {
+		"sound": "stone"
+	},
+	"terminal": {
+		"sound": "stone"
+	},
+	"exit_sign": {
+		"sound": "stone"
+	},
+	"door": {
+		"sound": "stone"
+	},
+	"id_scanner": {
+		"sound": "stone"
+	}
+}
