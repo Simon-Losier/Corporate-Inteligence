@@ -1,0 +1,21 @@
+{
+	"format_version": "1.14.0",
+	"sound_definitions": {
+        "music.armagedon": {
+            "category": "neutral",
+            "sounds": ["sounds/ovani/armagedon"]
+        },
+        "sfx.keypad-a": {
+            "category": "neutral",
+            "sounds": ["sounds/ovani/keypad-a"]
+        },
+        "sfx.old-laptop": {
+            "category": "neutral",
+            "sounds": ["sounds/ovani/old-laptop"]
+        },
+        "sfx.old-pc-key-e": {
+            "category": "neutral",
+            "sounds": ["sounds/ovani/old-pc-key-e"]
+        }
+	}
+}

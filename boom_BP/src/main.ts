@@ -7,8 +7,6 @@ import {
 import * as terminal from 'Terminal'
 import * as IDscanner from 'ID'
 
-let score = 0;
-
 // Bind events
 world.beforeEvents.worldInitialize.subscribe((eventData) => {
 
