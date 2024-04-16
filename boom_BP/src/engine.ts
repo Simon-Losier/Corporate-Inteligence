@@ -1,17 +1,7 @@
 import { Vector3, world } from "@minecraft/server";
 
 
-/**
- * Checks if the location coordinate is in the area of coordinate1 and coordinate 2
- * @param coordinate1 Point one of the area
- * @param coordinate2 Point two of the area
- * @param location 
- * @returns boolean
- */
-function collision(coordinate1: Vector3, coordinate2: Vector3, location: Vector3) {
-    return false;
-}
-
+// Vector Utilities
 /**
  * Will return the distance of two vectore points.
  * @param vectorA Cooridnate one
@@ -43,4 +33,17 @@ export function getClosestObject(listOfObjects: Array<any>, location: Vector3) {
         }
     }
     return closestObject;
+}
+
+// Block placing utilities
+export function setblock(block:String, locationA: Vector3, locationB: Vector3) {
+    throw "Not implemented"
+}
+
+export function destroyBlock(location: Vector3) {
+    throw "Not implemented"
+}
+
+export function destroyBlocks(locationA: Vector3, locationB: Vector3) {
+    throw "Not implemented"
 }

@@ -45,7 +45,7 @@ export class onTerminalInteract implements BlockCustomComponent {
     onPlayerInteract(eventData: BlockComponentPlayerInteractEvent) {
         let terminal = engine.getClosestObject(terminalRegistry, eventData.player.location);
         if (!terminal.activated) {
-            eventData.player.playSound("sfx.old-laptop");
+            eventData.player.playSound("sfx.old-laptop", {location: terminal.location});
             terminal.activated = true;
         }
         createUI(terminal.name, "Transfer Files").show(eventData.player);
