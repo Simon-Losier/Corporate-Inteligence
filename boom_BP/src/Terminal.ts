@@ -21,6 +21,11 @@ const terminalRegistry = [
         "name": "Simon",
         "location": {x: 32, y:96, z:-414},
         "activated": false
+    },
+    {
+        "name": "Alias",
+        "location": {x: 23, y:96, z:-404},
+        "acactivated": false
     }
 ]
 
@@ -36,6 +41,8 @@ function createUI(name: String, buttonName: String) {
         .button("Transfer Files")
     return terminalUI;
 }
+
+
 
 // Events
 export class onTerminalInteract implements BlockCustomComponent {

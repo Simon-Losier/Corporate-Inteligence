@@ -47,3 +47,7 @@ export function destroyBlock(location: Vector3) {
 export function destroyBlocks(locationA: Vector3, locationB: Vector3) {
     throw "Not implemented"
 }
+
+export function helloWorld() {
+    world.sendMessage("Hello world");
+}
