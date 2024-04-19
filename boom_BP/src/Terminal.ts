@@ -42,8 +42,6 @@ function createUI(name: String, buttonName: String) {
     return terminalUI;
 }
 
-
-
 // Events
 export class onTerminalInteract implements BlockCustomComponent {
     constructor() {

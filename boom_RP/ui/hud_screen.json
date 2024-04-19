@@ -1,19 +1,65 @@
 {
+    "namespace": "hud",
     "hud_text": {
         "type": "label",
         "text": "Score: 0",
         "anchor_from": "top_left",
         "anchor_to": "top_left",
-        "offset": [ 4, 4 ]
+        "offset": [ 4, 4 ],
+        "$update_string": "update",
+        "controls": [
+            {
+                "binding_name": "#hud_title_text_string"
+            },
+            {
+                "binding_name": "#hud_title_text_string",
+                "binding_name_override": "#preserved_text",
+                "binding_condition": "visibility_changed"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not (#hud_title_text_string = #preserved_text) and not ((#hud_title_text_string - $update_string) = #hud_title_text_string))",
+                "target_property_name": "#visible"
+            }
+        ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "data_control",
+                "source_property_name": "(#preserved_text - $update_string)",
+                "target_property_name": "#text"
+            }
+        ]
     },
-    
+    "string_to_number": {
+        "type": "label",
+        "text": "#player_score_sidebar",
+        "bindings": [
+            {
+                "binding_name": "#player_score_sidebar",
+                "binding_type": "collection",
+                "binding_collection_name": "scoreboard_scores"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#player_score_sidebar * 1)",   // convert score from string to number
+                "target_property_name": "#score"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#score > 99) and (#score < 1000))",   // visible between 100-999
+                "target_property_name": "#visible"
+            }
+        ]
+    },
     "root_panel": {
         "modifications": [
             {
                 "array_name": "controls",
                 "operation": "insert_front",
                 "value": [
-                    { "hud_text@hud.hud_text": {} }
+                    { "hud_text@hud.hud_text": {} },
+                    { "string_to_number@hud.string_to_number": {}}
                 ]
             }
         ]
