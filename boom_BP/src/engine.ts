@@ -1,4 +1,4 @@
-import { Vector3, world } from "@minecraft/server";
+import { Vector3, world, Player } from "@minecraft/server";
 
 
 // Vector Utilities
@@ -33,6 +33,23 @@ export function getClosestObject(listOfObjects: Array<any>, location: Vector3) {
         }
     }
     return closestObject;
+}
+
+// Title Utilities
+/**
+ * Sends a visible title with the goal to display a title to the player
+ * @param player Player to send title to
+ */
+export function sendTitle(player: Player) {
+    
+}
+
+/**
+ * Sends an invisible title with the goal to update UI
+ * @param player Player to send title to
+ */
+export function sendUITitle(player: Player) {
+
 }
 
 // Block placing utilities

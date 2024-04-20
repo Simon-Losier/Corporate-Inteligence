@@ -3,7 +3,8 @@ import {
     BlockComponentPlayerInteractEvent,
     BlockCustomComponent,
     Vector3,
-    Player
+    Player,
+    TitleDisplayOptions
 } from '@minecraft/server'
 import { ActionFormData } from '@minecraft/server-ui';
 import * as engine from 'engine';
@@ -28,7 +29,6 @@ const terminalRegistry = [
         "acactivated": false
     }
 ]
-
 // Terminal UI
 /**
  * Creates a UI const for terminal
@@ -42,6 +42,7 @@ function createUI(name: String, buttonName: String) {
     return terminalUI;
 }
 
+
 // Events
 export class onTerminalInteract implements BlockCustomComponent {
     constructor() {
@@ -52,7 +53,18 @@ export class onTerminalInteract implements BlockCustomComponent {
         if (!terminal.activated) {
             eventData.player.playSound("sfx.old-laptop", {location: terminal.location});
             terminal.activated = true;
+            score++;
+
         }
         createUI(terminal.name, "Transfer Files").show(eventData.player);
+        if (!terminal.acactivated) {
+            let scoreText: string = "updateIntel Found: " + score;
+            eventData.player.onScreenDisplay.setTitle(scoreText, {
+                stayDuration: 0,
+                fadeInDuration: 0,
+                fadeOutDuration: 0
+            });
+            eventData.player.onScreenDisplay.setActionBar("Inteligence Collected, " + (terminalRegistry.length - score) + " remaining");
+        }
     }
 }
