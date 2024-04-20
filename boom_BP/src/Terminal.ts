@@ -4,7 +4,8 @@ import {
     BlockCustomComponent,
     Vector3,
     Player,
-    TitleDisplayOptions
+    TitleDisplayOptions,
+    system
 } from '@minecraft/server'
 import { ActionFormData } from '@minecraft/server-ui';
 import * as engine from 'engine';
@@ -52,25 +53,25 @@ export class onTerminalInteract implements BlockCustomComponent {
         let terminal = engine.getClosestObject(terminalRegistry, eventData.player.location);
         if (!terminal.activated) {
             eventData.player.playSound("sfx.old-laptop", {location: terminal.location});
-            terminal.activated = true;
             score++;
-
         }
         createUI(terminal.name, "Transfer Files").show(eventData.player);
-        if (!terminal.acactivated) {
+        if (!terminal.activated) {
+            let scoreText: string = "updateIntel Found: " + score;
+            eventData.player.onScreenDisplay.setTitle(scoreText, {
+                stayDuration: 0,
+                fadeInDuration: 0,
+                fadeOutDuration: 0
+            });
             if (score >= terminalRegistry.length) {
-                eventData.player.onScreenDisplay.setTitle("Contract Completed");
-                eventData.player.onScreenDisplay.updateSubtitle("All Inteligence Collected")
+                system.runTimeout(() => {
+                    eventData.player.onScreenDisplay.setTitle("Contract Completed");
+                    eventData.player.onScreenDisplay.updateSubtitle("All Inteligence Collected");
+                }, 40)
             } else {
-                let scoreText: string = "updateIntel Found: " + score;
-                eventData.player.onScreenDisplay.setTitle(scoreText, {
-                    stayDuration: 0,
-                    fadeInDuration: 0,
-                    fadeOutDuration: 0
-                });
                 eventData.player.onScreenDisplay.setActionBar("Inteligence Collected, " + (terminalRegistry.length - score) + " remaining");
             }
-
         }
+        terminal.actived = true;
     }
 }
