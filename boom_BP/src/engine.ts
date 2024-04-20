@@ -3,7 +3,7 @@ import { Vector3, world, Player } from "@minecraft/server";
 
 // Vector Utilities
 /**
- * Will return the distance of two vectore points.
+ * Will return the distance of two vector points.
  * @param vectorA Cooridnate one
  * @param vectorB Coordinate two
  * @returns Distance
@@ -41,7 +41,7 @@ export function getClosestObject(listOfObjects: Array<any>, location: Vector3) {
  * @param player Player to send title to
  */
 export function sendTitle(player: Player) {
-    
+
 }
 
 /**
@@ -53,8 +53,9 @@ export function sendUITitle(player: Player) {
 }
 
 // Block placing utilities
-export function setblock(block:String, locationA: Vector3, locationB: Vector3) {
-    throw "Not implemented"
+export function fill(block:String, locationA: Vector3, locationB: Vector3) {
+    let command: string = `/fill ${locationA.x} ${locationA.y} ${locationA.z} ${locationB.x} ${locationB.y} ${locationB.z} ${block} replace`
+    world.getDimension("overworld").runCommand(command);
 }
 
 export function destroyBlock(location: Vector3) {
@@ -63,8 +64,4 @@ export function destroyBlock(location: Vector3) {
 
 export function destroyBlocks(locationA: Vector3, locationB: Vector3) {
     throw "Not implemented"
-}
-
-export function helloWorld() {
-    world.sendMessage("Hello world");
 }

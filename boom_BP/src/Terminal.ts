@@ -10,7 +10,7 @@ import { ActionFormData } from '@minecraft/server-ui';
 import * as engine from 'engine';
 
 let score: number = 0;
-
+let state: string = "collect" // States: collect, escape
 // Terminal Registration
 const terminalRegistry = [
     {
@@ -19,14 +19,14 @@ const terminalRegistry = [
         "activated": false
     },
     {
-        "name": "Simon",
+        "name": "Alias",
         "location": {x: 32, y:96, z:-414},
         "activated": false
     },
     {
-        "name": "Alias",
-        "location": {x: 23, y:96, z:-404},
-        "acactivated": false
+        "name": "John",
+        "location": {x: 21, y: 96, z:-394},
+        "activated": false 
     }
 ]
 // Terminal UI
@@ -58,13 +58,19 @@ export class onTerminalInteract implements BlockCustomComponent {
         }
         createUI(terminal.name, "Transfer Files").show(eventData.player);
         if (!terminal.acactivated) {
-            let scoreText: string = "updateIntel Found: " + score;
-            eventData.player.onScreenDisplay.setTitle(scoreText, {
-                stayDuration: 0,
-                fadeInDuration: 0,
-                fadeOutDuration: 0
-            });
-            eventData.player.onScreenDisplay.setActionBar("Inteligence Collected, " + (terminalRegistry.length - score) + " remaining");
+            if (score >= terminalRegistry.length) {
+                eventData.player.onScreenDisplay.setTitle("Contract Completed");
+                eventData.player.onScreenDisplay.updateSubtitle("All Inteligence Collected")
+            } else {
+                let scoreText: string = "updateIntel Found: " + score;
+                eventData.player.onScreenDisplay.setTitle(scoreText, {
+                    stayDuration: 0,
+                    fadeInDuration: 0,
+                    fadeOutDuration: 0
+                });
+                eventData.player.onScreenDisplay.setActionBar("Inteligence Collected, " + (terminalRegistry.length - score) + " remaining");
+            }
+
         }
     }
 }
