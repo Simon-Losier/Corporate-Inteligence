@@ -2,7 +2,9 @@ import {
     world, 
     BlockPermutation, 
     BlockCustomComponent,
-    BlockComponentPlayerInteractEvent
+    BlockComponentPlayerInteractEvent,
+    system,
+    Player
 } from "@minecraft/server"
 import * as terminal from 'Terminal'
 import * as IDscanner from 'ID'
@@ -21,4 +23,7 @@ world.beforeEvents.worldInitialize.subscribe((eventData) => {
         'lab:on_terminal_interact', 
         new terminal.onTerminalInteract()
     );
+})
+world.afterEvents.worldInitialize.subscribe(() => {
+    terminal.setScore(0)
 })

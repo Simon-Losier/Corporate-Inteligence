@@ -2,7 +2,7 @@ import { world } from '@minecraft/server'
 import * as engine from 'engine';
 
 const doorRegistry = { // An object instead of array to make IDs permenent for linking
-    0: {
+    tom_a: {
         open: false,
         blocks: [
             {
@@ -46,10 +46,100 @@ const doorRegistry = { // An object instead of array to make IDs permenent for l
                 locationB: {x: 36, y: 95, z: -404}
             }
         ]
+    },
+    john_j: {
+        open: false,
+        blocks: [
+            {
+                block: "black_concrete",
+                locationA: {x: 50, y: 97, z: -391},
+                locationB: {x: 50, y: 96, z: -391}
+            }, // 50 97 -391
+            {
+                block: "lab:door",
+                locationA: {x: 50, y: 95, z: -391},
+                locationB: {x: 50, y: 95, z: -391}
+            }
+        ]
+    },
+    s_archives: {
+        open: false,
+        blocks: [
+            {
+                block: "black_concrete",
+                locationA: {x: 47, y: 97, z: -399},
+                locationB: {x: 45, y: 96, z: -399}
+            },
+            {
+                block: "lab:door",
+                locationA: {x: 47, y: 95, z: -399},
+                locationB: {x: 45, y: 95, z: -399}
+            }
+        ]
+    },
+    abigor: {
+        open: false,
+        blocks: [
+            {
+                block: "black_concrete",
+                locationA: {x: 31, y: 97, z: -399},
+                locationB: {x: 31, y: 96, z: -399}
+            }, 
+            {
+                block: "lab:door",
+                locationA: {x: 31, y: 95, z: -399},
+                locationB: {x: 31, y: 95, z: -399}
+            }
+        ]
+    },
+    alex_j: {
+        open: false,
+        blocks: [
+            {
+                block: "black_concrete",
+                locationA: {x: 31, y: 97, z: -407},
+                locationB: {x: 31, y: 96, z: -407},
+            },
+            {
+                block: "lab:door",
+                locationA: {x: 31, y: 95, z: -407},
+                locationB: {x: 31, y: 95, z: -407},
+            }
+        ]
+    },
+    ava_g: {
+        open: false,
+        blocks: [
+            {
+                block: "black_concrete",
+                locationA: {x: 21, y: 97, z: -399},
+                locationB: {x: 21, y: 96, z: -399}
+            },
+            {
+                block: "lab:door",
+                locationA: {x: 21, y: 95, z: -399},
+                locationB: {x: 21, y: 95, z: -399}
+            }
+        ]
+    },
+    ethan_b: {
+        open: false,
+        blocks: [
+            {
+                block: "black_concrete",
+                locationA: {x: 21, y: 97, z: -407},
+                locationB: {x: 21, y: 96, z: -407},
+            },
+            {
+                block: "lab:door",
+                locationA: {x: 21, y: 95, z: -407},
+                locationB: {x: 21, y: 95, z: -407}
+            }
+        ]
     }
 }
 
-export function toggleDoor(id: number) {
+export function toggleDoor(id: number|string) {
     if (doorRegistry[id].open) {
         closeDoor(id);
     } else {
@@ -61,7 +151,7 @@ export function toggleDoor(id: number) {
  * Will open the door
  * @param id ID of the door in number
  */
-export function openDoor(id: number) {
+export function openDoor(id: number|string) {
     for (let i = 0; i<doorRegistry[id].blocks.length; i++) {
         engine.fill("air", doorRegistry[id].blocks[i].locationA, doorRegistry[id].blocks[i].locationB);
     }
@@ -72,7 +162,7 @@ export function openDoor(id: number) {
  * 
  * @param id 
  */
-export function closeDoor(id: number) {
+export function closeDoor(id: number|string) {
     for (let i = 0; i<doorRegistry[id].blocks.length; i++) {
         engine.fill(doorRegistry[id].blocks[i].block, doorRegistry[id].blocks[i].locationA, doorRegistry[id].blocks[i].locationB)
     }

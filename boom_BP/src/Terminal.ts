@@ -12,6 +12,23 @@ import * as engine from 'engine';
 
 let score: number = 0;
 let state: string = "collect" // States: collect, escape
+
+export function setScore(scoreValue: number) {
+    score = scoreValue;
+    let scoreText: string = "updateIntel Found: " + score;
+    const players = world.getAllPlayers();
+    for (const player of players) {
+        player.onScreenDisplay.setTitle(scoreText, {
+            stayDuration: 0,
+            fadeInDuration: 0,
+            fadeOutDuration: 0
+        });
+    }
+}
+export function getScore() {
+    return score;
+}
+
 // Terminal Registration
 const terminalRegistry = [
     {
@@ -20,14 +37,29 @@ const terminalRegistry = [
         "activated": false
     },
     {
-        "name": "Alias",
+        "name": "Alex",
         "location": {x: 32, y:96, z:-414},
         "activated": false
     },
     {
-        "name": "John",
+        "name": "Ava",
         "location": {x: 21, y: 96, z:-394},
         "activated": false 
+    },
+    {
+        "name": "Ethan",
+        "location": {x: 21, y: 96, z:-412},
+        "activated": false
+    },
+    {
+        "name": "John",
+        "location": {x: 56, y: 95, z: -391},
+        "activated": false
+    },
+    {
+        "name": "Tom",
+        "location": {x: 37, y: 96, z: -391},
+        "activated": false
     }
 ]
 // Terminal UI
@@ -72,6 +104,6 @@ export class onTerminalInteract implements BlockCustomComponent {
                 eventData.player.onScreenDisplay.setActionBar("Inteligence Collected, " + (terminalRegistry.length - score) + " remaining");
             }
         }
-        terminal.actived = true;
+        terminal.activated = true;
     }
 }
